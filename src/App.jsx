@@ -3,12 +3,15 @@ import Navbar from './components/Navbar'
 import ItemListContainer from './components/ItemListContainer'
 
 const App = () => {
+
   return (
     <>
-    <Navbar/>
+    <div className='bodyApp'>
+    <Navbar />
     <ItemListContainer
     greeting= "Bienvenidos a Matrices"
     />
+    </div>
     </>
   )
 }

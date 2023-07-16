@@ -8,37 +8,43 @@ import {
   Flex,
   Box,
   Spacer,
+  Image,
+  MenuDivider,
+  MenuGroup,
 } from '@chakra-ui/react'
-import { ChevronDownIcon} from '@chakra-ui/icons'
+import { ChevronDownIcon, HamburgerIcon} from '@chakra-ui/icons'
 import CardWidget from './CardWidget'
 
 const Navbar = () => {
   return (
-    
-    <Flex>
-      <Box >
-      <h1>Matrices
-      </h1>
-      </Box>
-      <Spacer/>
-    <Menu>
-  <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-    Actions
+    <Flex bg='#9fac82' >
+          <Menu >
+  <MenuButton as={Button} leftIcon={<HamburgerIcon />} bg='#9fac82'  mt='2'>
+    Matrices
   </MenuButton>
   <MenuList>
-    <MenuItem>Download</MenuItem>
-    <MenuItem>Create a Copy</MenuItem>
-    <MenuItem>Mark as Draft</MenuItem>
-    <MenuItem>Delete</MenuItem>
-    <MenuItem>Attend a Workshop</MenuItem>
+    <MenuGroup title='Productos'>
+      <MenuItem>Mates</MenuItem>
+      <MenuItem>Yerba</MenuItem>
+      <MenuItem>Bombillas</MenuItem>
+    </MenuGroup>
+    <MenuDivider/>
+    <MenuItem>Quienes Somos</MenuItem>
+    <MenuItem>Contacto</MenuItem>
   </MenuList>
 </Menu>
+
 <Spacer/>
-<Box >
+<Box>
+<Image src='https://cdn-icons-png.flaticon.com/512/5346/5346913.png' alt='Dan Abramov' boxSize='37px' m='2' />
+
+</Box>
+<Spacer/>
+<Box p='2' >
   <CardWidget/>
 </Box>
-
 </Flex>
+
     
   )
 }

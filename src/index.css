@@ -1,0 +1,20 @@
+
+.bodyApp {
+    font-family: "Quicksand", sans-serif;
+    height: 100vh;    
+    background-image: url(https://img.freepik.com/fotos-premium/arpillera-sobre-fondo-blanco-madera_88281-1485.jpg?w=740);
+    background-size:cover;
+    }
+
+.header{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    
+}
+.headerParrafo{
+    display: flex;
+    justify-content: center;
+}
