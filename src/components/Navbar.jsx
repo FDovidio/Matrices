@@ -10,10 +10,11 @@ import {
   Spacer,
   Image,
   MenuDivider,
-  MenuGroup,
+  MenuGroup
 } from "@chakra-ui/react";
-import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
-import CardWidget from "./CardWidget";
+import {  HamburgerIcon } from "@chakra-ui/icons";
+import CartWidget from "./CartWidget";
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -29,9 +30,18 @@ const Navbar = () => {
         </MenuButton>
         <MenuList>
           <MenuGroup title="Productos">
+            <Link to= {`/category/${'Mates'}`}>
             <MenuItem>Mates</MenuItem>
+            </Link>
+            <Link to= {`/category/${'Yerbas'}`}>
             <MenuItem>Yerba</MenuItem>
-            <MenuItem>Bombillas</MenuItem>
+            </Link>
+            <Link to= {`/category/${'Termos'}`}>
+            <MenuItem>Termos</MenuItem>
+            </Link>
+            <Link to= {`/category/${'Otros'}`}>
+            <MenuItem>Otros</MenuItem>
+            </Link>
           </MenuGroup>
           <MenuDivider />
           <MenuItem>Quienes Somos</MenuItem>
@@ -39,17 +49,21 @@ const Navbar = () => {
         </MenuList>
       </Menu>
       <Spacer />
-      <Box>
+      <Box>  
+        <Link to={"/"}>
         <Image
           src="https://cdn-icons-png.flaticon.com/512/5346/5346913.png"
           alt="Dan Abramov"
           boxSize="37px"
           m="2"
         />
+      </Link>
       </Box>
       <Spacer />
       <Box p="2">
-        <CardWidget />
+      <Link to={"/cart"}>
+        <CartWidget />
+        </Link>
       </Box>
     </Flex>
   );

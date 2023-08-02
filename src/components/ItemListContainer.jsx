@@ -1,22 +1,41 @@
+import { useParams } from 'react-router-dom';
 import React from "react";
-import { Flex, Heading, Image } from "@chakra-ui/react";
+import ItemList from "./ItemList";
+import { useEffect, useState } from 'react'
 
-const ItemListContainer = ({ greeting }) => {
+
+
+
+
+
+const ItemListContainer = () => {
+
+const {category} = useParams()
+
+useEffect(() => {
+  fetch('src/catalogo.json')
+    .then((response) => {
+      return response.json()
+    })
+    .then((articulos) => {
+      setArticulos(articulos)
+    })
+}, [])
+
+const [articulos, setArticulos] = useState([])
+
+console.log(articulos)
+  const filteredCategory = articulos.filter((articulo) => articulo.categoria==category)
+
   return (
-    <div className="header">
-      <Image
-        src="https://cdn-icons-png.flaticon.com/512/5346/5346913.png"
-        alt="Dan Abramov"
-        boxSize="80px"
-      />
-      <Heading size="lg" fontSize="50px">
-        {greeting}
-      </Heading>
-      <p className="headerParrafo">
-        El primer e-commerce con el mejor catalogo de productos que llevara tu
-        experiencia de mate al siguiente nivel
-      </p>
-    </div>
+    <>
+    <div className="grillaProductos">
+      <ItemList
+      articulos = {filteredCategory}
+       />    
+      </div>
+      
+      </>
   );
 };
 
