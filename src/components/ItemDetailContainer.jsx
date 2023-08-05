@@ -1,41 +1,25 @@
-import React from 'react'
-import ItemDetail from './ItemDetail'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-
-
-
+import React from "react";
+import ItemDetail from "./ItemDetail";
+import { useEffect, useState } from "react";
 
 const ItemDetailContainer = () => {
-
-  const {id} = useParams()
-
-  
-
   useEffect(() => {
-    fetch('src/catalogo.json')
+    fetch("/catalogo.json")
       .then((response) => {
-        return response.json()
+        return response.json();
       })
       .then((articulos) => {
-        setArticulos(articulos)
-      })
-  }, [])
+        setArticulos(articulos);
+      });
+  }, []);
 
-const [articulos, setArticulos] = useState([])
-
+  const [articulos, setArticulos] = useState([]);
 
   return (
-    <>
-    <div className='contenedorItem'>
-    {
-    <ItemDetail 
-    productos={articulos}
-    />
-    }
+    <div className="contenedorItemDetail">
+      {<ItemDetail articulos={articulos} />}
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
