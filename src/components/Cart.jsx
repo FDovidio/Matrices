@@ -4,10 +4,11 @@ import { CartContext } from '../context/ShoppingCartContext'
 import {useContext} from 'react'
 
 
+
 const Cart = () => {
 
   const {cart} = useContext(CartContext)
-  
+
   console.log(cart)
   return (
     <>
@@ -22,22 +23,21 @@ const Cart = () => {
     objectFit='cover'
     maxW={{ base: '100%', sm: '200px' }}
     src={item.img}
-    alt='Caffe Latte'
+    alt={item.nombre}
   />
 
   <Stack>
     <CardBody>
-      <Heading size='md'>The perfect latte</Heading>
+      <Heading size='md'>{item.nombre}</Heading>
 
       <Text py='2'>
-        Caffè latte is a coffee beverage of Italian origin made with espresso
-        and steamed milk.
+      {item.descripcion}
       </Text>
     </CardBody>
 
     <CardFooter>
-      <Button variant='solid' colorScheme='blue'>
-        Buy Latte
+      <Button variant='solid' colorScheme='blue' >
+        Eliminar
       </Button>
     </CardFooter>
   </Stack>

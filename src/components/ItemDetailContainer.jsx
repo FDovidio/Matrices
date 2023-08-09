@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
   const [articulos, setArticulos] = useState([]);
 
   return (
-    <ShoppingCartContext>
+    
     <div className="contenedorItemDetail">
       {
         
@@ -28,7 +28,7 @@ const ItemDetailContainer = () => {
         }
       
     </div> 
-    </ShoppingCartContext>
+   
   );
 };
 

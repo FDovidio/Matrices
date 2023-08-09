@@ -18,12 +18,15 @@ import {CartContext} from '../context/ShoppingCartContext';
 
 const ItemDetail = ({ articulos }) => {
   const { id } = useParams();
+  const [count, setCount] = useState(1);
   const itemId = articulos.filter((articulo) => articulo.id == id);
-  
-  const {setCart} = useContext(CartContext)
-  function onAdd () {
-    setCart (itemId)
-  }
+  const {addItem} = useContext(CartContext)
+
+const onAdd = (count)=>{
+  addItem(itemId, count)
+    
+}
+
 
 
 
@@ -72,8 +75,12 @@ const ItemDetail = ({ articulos }) => {
                 </CardBody>
                 <ButtonGroup justifyContent="center" margin='5px'>
                   <ItemCount 
+                  
+                  count={count}
+                  setCount={setCount}
                   stock = {p.stock}
                   />
+                  
                 </ButtonGroup>
                 <CardFooter justifyContent="center">
                   <Button variant="solid" bg="#9fac82" onClick={onAdd}>

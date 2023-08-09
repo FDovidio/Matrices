@@ -10,8 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 
-const ItemCount = ({stock}) => {
-  const [count, setCount] = useState(0);
+const ItemCount = ({stock, count, setCount}) => {
   const [countStock, setCountStock] = useState(stock);
   const sumar = () => {
     if (count <= 10) {
