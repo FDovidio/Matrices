@@ -15,6 +15,9 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import ShoppingCartContext  from "../context/ShoppingCartContext";
+
+
 
 const Navbar = () => {
   return (
@@ -62,7 +65,9 @@ const Navbar = () => {
       <Spacer />
       <Box p="2">
         <Link to={"/cart"}>
+          
           <CartWidget />
+          
         </Link>
       </Box>
     </Flex>

@@ -17,6 +17,7 @@ const ItemCount = ({stock}) => {
     if (count <= 10) {
       setCount(count + 1);
       setCountStock(countStock - 1);
+      
     }
   };
 
@@ -24,9 +25,10 @@ const ItemCount = ({stock}) => {
     if (count > 0) {
       setCount(count - 1);
       setCountStock(countStock + 1);
+      
     }
   };
-console.log(count)
+
   return (
     <div className="cardContainer">
       <div className="cardItem">

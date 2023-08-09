@@ -1,6 +1,9 @@
 import React from "react";
 import ItemDetail from "./ItemDetail";
 import { useEffect, useState } from "react";
+import ShoppingCartContext from "../context/ShoppingCartContext";
+
+
 
 const ItemDetailContainer = () => {
   useEffect(() => {
@@ -16,9 +19,16 @@ const ItemDetailContainer = () => {
   const [articulos, setArticulos] = useState([]);
 
   return (
+    <ShoppingCartContext>
     <div className="contenedorItemDetail">
-      {<ItemDetail articulos={articulos} />}
-    </div>
+      {
+        
+        <ItemDetail articulos={articulos} />
+       
+        }
+      
+    </div> 
+    </ShoppingCartContext>
   );
 };
 

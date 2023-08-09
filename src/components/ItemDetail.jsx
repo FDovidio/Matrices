@@ -10,14 +10,23 @@ import {
   ButtonGroup,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import { useState, useContext } from "react";
 import ItemCount from "./ItemCount";
+import {CartContext} from '../context/ShoppingCartContext';
+
+
 
 const ItemDetail = ({ articulos }) => {
   const { id } = useParams();
-
   const itemId = articulos.filter((articulo) => articulo.id == id);
+  
+  const {setCart} = useContext(CartContext)
+  function onAdd () {
+    setCart (itemId)
+  }
 
-  console.log(itemId);
+
+
   return (
     <>
       {itemId.map((p) => {
@@ -62,10 +71,12 @@ const ItemDetail = ({ articulos }) => {
                   <Text py="2">{p.descripcion}</Text>
                 </CardBody>
                 <ButtonGroup justifyContent="center" margin='5px'>
-                  <ItemCount stock = {p.stock}/>
+                  <ItemCount 
+                  stock = {p.stock}
+                  />
                 </ButtonGroup>
                 <CardFooter justifyContent="center">
-                  <Button variant="solid" bg="#9fac82">
+                  <Button variant="solid" bg="#9fac82" onClick={onAdd}>
                     Comprar {p.nombre}
                   </Button>
                 </CardFooter>
