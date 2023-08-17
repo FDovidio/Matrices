@@ -12,36 +12,27 @@ import {ShoppingCartProvider} from "../src/context/ShoppingCartContext";
 
 
 
-
-
-
-
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 const App = () => {
+
+
   return (
     <ShoppingCartProvider>
     <BrowserRouter>
       <div className="bodyApp">
         <Navbar />
-
         <Routes>
           <Route
             exact
             path="/"
-            element={<ItemListContainer greeting={<Greeting />} />}
+            element={<ItemListContainer greeting={<Greeting />}  />}
           />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
-          
-          <Route exact path="/cart" element={
-            
-           <Cart />
-           
-          } />
-          
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/form" element={<Form />} />"
           <Route
             exact
             path="/category/:category"
@@ -49,9 +40,9 @@ const App = () => {
           />
           <Route exact path="/item/:id" element={<ItemDetailContainer />} />
         </Routes>   
-
         <Footer />
       </div>
+      
     </BrowserRouter> 
   </ShoppingCartProvider>
 

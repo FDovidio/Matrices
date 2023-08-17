@@ -15,11 +15,28 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
-import ShoppingCartContext  from "../context/ShoppingCartContext";
+import { useContext } from "react";
+import {CartContext} from '../context/ShoppingCartContext';
+import AlertCart from "./AlertCart";
+
 
 
 
 const Navbar = () => {
+  const {cart} = useContext(CartContext)
+  const cartEmpty = () => {
+    if(cart.length == 0){
+    return <AlertCart/>
+    }else{
+      <Link to={ 
+        "/cart"}>
+        
+        <CartWidget />
+        
+      </Link>
+    }}
+
+
   return (
     <Flex bg="#9fac82">
       <Menu>
@@ -64,7 +81,8 @@ const Navbar = () => {
       </Box>
       <Spacer />
       <Box p="2">
-        <Link to={"/cart"}>
+        <Link to={ 
+          "/cart"}>
           
           <CartWidget />
           

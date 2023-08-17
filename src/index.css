@@ -1,10 +1,11 @@
 .bodyApp {
   font-family: "Quicksand", sans-serif;
-  height: 100;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 7em;
   background-image: url(https://img.freepik.com/fotos-premium/arpillera-sobre-fondo-blanco-madera_88281-1485.jpg?w=740);
   background-size: cover;
   margin: 0 auto;
-  padding: 0;
 }
 
 .header {
@@ -46,4 +47,10 @@
 
 .imagenItem {
   max-height: 270px;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

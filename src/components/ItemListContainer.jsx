@@ -3,36 +3,49 @@ import React from "react";
 import { Flex, Heading, Image } from "@chakra-ui/react";
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
+import Loader from "./Loader" 
+import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js'
 
-const ItemListContainer = ({ greeting }) => {
+
+
+
+const ItemListContainer = ({ greeting}) => {
+
   const { category } = useParams();
+  const [articulos, setArticulos] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (category) {
-      fetch("/catalogo.json")
-        .then((response) => {
-          return response.json();
-        })
-        .then((articulos) => {
-          const filteredCategory = articulos.filter(
-            (articulo) => articulo.categoria == category
-          );
-          setArticulos(filteredCategory);
-        });
+      const db = getFirestore()
+      const itemsCollection = collection( db, " ARTICULOS ");
+      getDocs(itemsCollection).then((snapshot) => {
+        const docs = snapshot.docs.map((doc) => doc.data())
+        const filteredCategory = docs.filter((item) => item.categoria === category)
+        setArticulos(filteredCategory)
+      })
     } else {
-      fetch("/catalogo.json")
-        .then((response) => {
-          return response.json();
-        })
-        .then((articulos) => {
-          setArticulos(articulos);
-        });
-    }
+      const db = getFirestore ()
+      const itemsCollection = collection(db, "ARTICULOS");
+      getDocs(itemsCollection).then((snapshot) => {
+        const docs = snapshot.docs.map((doc) => doc.data())
+        setArticulos(docs)
+      })
+    }  
+setTimeout(() => {
+  articulos
+  setLoading(false)
+}, 3000);
   }, [category]);
 
-  const [articulos, setArticulos] = useState([]);
+  console.log(articulos)
 
-  return (
+  if(loading){
+    return <Loader/>
+  }
+
+
+     return (
     <>
       <div className="header">
         <Image
@@ -45,8 +58,9 @@ const ItemListContainer = ({ greeting }) => {
       <div className="grillaProductos">
         <ItemList articulos={articulos} />
       </div>
-    </>
-  );
+
+       </>
+)
 };
 
 export default ItemListContainer;

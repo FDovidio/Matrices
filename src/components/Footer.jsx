@@ -5,6 +5,7 @@ import { Box, Flex, Spacer, Image, UnorderedList, ListItem } from '@chakra-ui/re
 
 const Footer = () => {
     return (
+      <div className='footer'>
         <Flex bg="#9fac82">
           <Box p="3">
         <ul className='footerUl'>
@@ -27,6 +28,7 @@ const Footer = () => {
         Matrices ©️
         </Box>
         </Flex>
+        </div>
       );
 }
 

@@ -11,6 +11,7 @@ const ItemDetailContainer = () => {
       .then((response) => {
         return response.json();
       })
+      
       .then((articulos) => {
         setArticulos(articulos);
       });

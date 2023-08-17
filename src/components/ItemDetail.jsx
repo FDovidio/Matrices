@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Card,
   Stack,
@@ -22,9 +23,9 @@ const ItemDetail = ({ articulos }) => {
   const itemId = articulos.filter((articulo) => articulo.id == id);
   const {addItem} = useContext(CartContext)
 
-const onAdd = (count)=>{
-  addItem(itemId, count)
-    
+const onAdd = ()=>{
+  addItem(itemId[0], count)
+  
 }
 
 
@@ -41,10 +42,10 @@ const onAdd = (count)=>{
               display="flex"
               alignItems="center"
               justifyContent="center"
-              direction="row"
-              overflow="hidden"
-              variant="outline"
+              overflow='hidden'
+              variant='outline'
               margin="50px"
+
             >
               <div className="imagenItemSelect">
                 <Image
@@ -67,7 +68,7 @@ const onAdd = (count)=>{
                   display="flex"
                   flexDirection="column"
                   padding="30px"
-                  fontSize="30"
+                  
                 >
                   <Heading size="xl">{p.nombre}</Heading>
 
@@ -96,4 +97,4 @@ const onAdd = (count)=>{
   );
 };
 
-export default ItemDetail;
+export default React.memo (ItemDetail);
