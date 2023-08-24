@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Card,
   Stack,
@@ -13,39 +13,32 @@ import {
 import { useParams } from "react-router-dom";
 import { useState, useContext } from "react";
 import ItemCount from "./ItemCount";
-import {CartContext} from '../context/ShoppingCartContext';
-
-
+import { CartContext } from "../context/ShoppingCartContext";
 
 const ItemDetail = ({ articulos }) => {
   const { id } = useParams();
   const [count, setCount] = useState(1);
   const itemId = articulos.filter((articulo) => articulo.id == id);
-  const {addItem} = useContext(CartContext)
+  const { addItem } = useContext(CartContext);
 
-const onAdd = ()=>{
-  addItem(itemId[0], count)
-  
-}
-
-
-
+  const onAdd = () => {
+    addItem(itemId[0], count);
+  };
 
   return (
     <>
       {itemId.map((p) => {
         return (
-          <div key="p.id">
+          <div key={p.id}>
             <Card
               spacing="0"
               padding="30px"
               display="flex"
               alignItems="center"
               justifyContent="center"
-              overflow='hidden'
-              variant='outline'
+              overflow="hidden"
+              variant="outline"
               margin="50px"
-
             >
               <div className="imagenItemSelect">
                 <Image
@@ -68,20 +61,17 @@ const onAdd = ()=>{
                   display="flex"
                   flexDirection="column"
                   padding="30px"
-                  
                 >
                   <Heading size="xl">{p.nombre}</Heading>
 
                   <Text py="2">{p.descripcion}</Text>
                 </CardBody>
-                <ButtonGroup justifyContent="center" margin='5px'>
-                  <ItemCount 
-                  
-                  count={count}
-                  setCount={setCount}
-                  stock = {p.stock}
+                <ButtonGroup justifyContent="center" margin="5px">
+                  <ItemCount
+                    count={count}
+                    setCount={setCount}
+                    stock={p.stock}
                   />
-                  
                 </ButtonGroup>
                 <CardFooter justifyContent="center">
                   <Button variant="solid" bg="#9fac82" onClick={onAdd}>
@@ -97,4 +87,4 @@ const onAdd = ()=>{
   );
 };
 
-export default React.memo (ItemDetail);
+export default React.memo(ItemDetail);

@@ -1,27 +1,18 @@
-import { Flex, Button, Badge } from '@chakra-ui/react'
-import React from 'react'
-import { useContext, useState } from 'react'
-import {CartContext} from '../context/ShoppingCartContext';
-
-
-
-
-
-
-
+import { Flex, Button, Badge } from "@chakra-ui/react";
+import React from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/ShoppingCartContext";
 
 const CardWidget = () => {
-  const {cartQuantity} = useContext(CartContext)
+  const { cartQuantity } = useContext(CartContext);
   return (
     <Flex>
-
-      <Button >
+      <Button>
         <h4>🛒</h4>
         {cartQuantity() > 0 && <Badge>{cartQuantity()}</Badge>}
-        </Button>
-
+      </Button>
     </Flex>
-  )
-}
+  );
+};
 
-export default CardWidget
+export default CardWidget;

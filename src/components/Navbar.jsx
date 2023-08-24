@@ -16,26 +16,34 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import {CartContext} from '../context/ShoppingCartContext';
+import { CartContext } from "../context/ShoppingCartContext";
 import AlertCart from "./AlertCart";
-
-
-
+import { signOut } from "firebase/auth";
+import { auth } from "../main";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const {cart} = useContext(CartContext)
+  const { cart } = useContext(CartContext);
   const cartEmpty = () => {
-    if(cart.length == 0){
-    return <AlertCart/>
-    }else{
-      <Link to={ 
-        "/cart"}>
-        
+    if (cart.length == 0) {
+      return <AlertCart />;
+    } else {
+      <Link to={"/cart"}>
         <CartWidget />
-        
-      </Link>
-    }}
+      </Link>;
+    }
+  };
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+      });
+  };
 
   return (
     <Flex bg="#9fac82">
@@ -64,28 +72,21 @@ const Navbar = () => {
             </Link>
           </MenuGroup>
           <MenuDivider />
+          <Link to={'/home'}>
+          <MenuItem>Inicio</MenuItem>
+          </Link>
+          <Link to ={'/about'}>
           <MenuItem>Quienes Somos</MenuItem>
-          <MenuItem>Contacto</MenuItem>
+          </Link>
         </MenuList>
       </Menu>
       <Spacer />
-      <Box>
-        <Link to={"/"}>
-          <Image
-            src="https://cdn-icons-png.flaticon.com/512/5346/5346913.png"
-            alt="Dan Abramov"
-            boxSize="37px"
-            m="2"
-          />
-        </Link>
-      </Box>
-      <Spacer />
-      <Box p="2">
-        <Link to={ 
-          "/cart"}>
-          
+      <Box p="2" display='flex'>
+      <Button variant='outline' marginRight='10px' onClick={handleLogout}>
+        Log Out
+      </Button>
+        <Link to={"/cart"}>
           <CartWidget />
-          
         </Link>
       </Box>
     </Flex>

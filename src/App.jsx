@@ -4,11 +4,13 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Footer from "./components/Footer";
 import About from "./components/About";
-import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Greeting from "./components/Greeting";
 import Form from "./components/Form";
 import {ShoppingCartProvider} from "../src/context/ShoppingCartContext";
+import Signup from "../src/components/Singup";
+import Login from "../src/components/Login";
+
 
 
 
@@ -22,17 +24,18 @@ const App = () => {
     <ShoppingCartProvider>
     <BrowserRouter>
       <div className="bodyApp">
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route
             exact
-            path="/"
+            path="/home"
             element={<ItemListContainer greeting={<Greeting />}  />}
           />
           <Route exact path="/about" element={<About />} />
-          <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/cart" element={<Cart />} />
-          <Route exact path="/form" element={<Form />} />"
+          <Route exact path="/form" element={<Form />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Login />} />
           <Route
             exact
             path="/category/:category"

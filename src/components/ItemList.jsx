@@ -1,6 +1,6 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import Item from "./Item";
-import React from 'react'
+import React from "react";
 
 const ItemList = ({ articulos }) => {
   return (
@@ -24,4 +24,4 @@ const ItemList = ({ articulos }) => {
   );
 };
 
-export default React.memo (ItemList);
+export default React.memo(ItemList);

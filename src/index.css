@@ -54,3 +54,32 @@
   bottom: 0;
   width: 100%;
 }
+
+.cart{
+  background-color: #9fac82a8;
+  margin: 10px;
+  border-radius: 1rem;
+}
+
+.totalForm{
+  color: rgb(0, 0, 0);
+  font-size: larger;
+  font-weight:bolder;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  margin-right: 35px;
+}
+
+.form{
+  background-color: white;
+  font-size: larger;
+  margin: 10px;
+  border-radius: 1rem;
+  padding: 10px;
+}
+
+.congratsCard{
+  border-radius: 1rem;
+  margin: 10px;
+}

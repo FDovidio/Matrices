@@ -10,13 +10,12 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 
-const ItemCount = ({stock, count, setCount}) => {
+const ItemCount = ({ stock, count, setCount }) => {
   const [countStock, setCountStock] = useState(stock);
   const sumar = () => {
     if (count <= 10) {
       setCount(count + 1);
       setCountStock(countStock - 1);
-      
     }
   };
 
@@ -24,14 +23,12 @@ const ItemCount = ({stock, count, setCount}) => {
     if (count > 0) {
       setCount(count - 1);
       setCountStock(countStock + 1);
-      
     }
   };
 
   return (
     <div className="cardContainer">
       <div className="cardItem">
-      
         <Stack spacing={4} direction="row" align="center" justify="center">
           <Button colorScheme="teal" size="sm" onClick={restar}>
             -
@@ -41,7 +38,14 @@ const ItemCount = ({stock, count, setCount}) => {
             +
           </Button>
         </Stack>
-        <Text display='flex' justifyContent='center' alignItems='center' margin='10px'>Stock: {countStock}</Text>
+        <Text
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          margin="10px"
+        >
+          Stock: {countStock}
+        </Text>
       </div>
     </div>
   );

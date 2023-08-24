@@ -1,35 +1,27 @@
 import React from "react";
 import ItemDetail from "./ItemDetail";
 import { useEffect, useState } from "react";
-import ShoppingCartContext from "../context/ShoppingCartContext";
-
-
+import {
+  getFirestore,
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const ItemDetailContainer = () => {
+  const [articulos, setArticulos] = useState([]);
   useEffect(() => {
-    fetch("/catalogo.json")
-      .then((response) => {
-        return response.json();
-      })
-      
-      .then((articulos) => {
-        setArticulos(articulos);
-      });
+    const db = getFirestore();
+    const itemsCollection = collection(db, "ARTICULOS ");
+    getDocs(itemsCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => doc.data());
+      setArticulos(docs);
+    });
   }, []);
 
-  const [articulos, setArticulos] = useState([]);
-
   return (
-    
     <div className="contenedorItemDetail">
-      {
-        
-        <ItemDetail articulos={articulos} />
-       
-        }
-      
-    </div> 
-   
+      {<ItemDetail articulos={articulos} />}
+    </div>
   );
 };
 
