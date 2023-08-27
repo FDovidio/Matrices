@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  Box,
-  Flex,
-  Spacer,
-  Image,
-  UnorderedList,
-  ListItem,
-  Link
-} from "@chakra-ui/react";
+import { Box, Flex, Spacer, Image } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -16,14 +9,10 @@ const Footer = () => {
         <Box p="3">
           <ul className="footerUl">
             <li>
-              <Link to={'/home'}>
-              Inicio
-              </Link>
+              <Link to={"/home"}>Inicio</Link>
             </li>
             <li>
-              <Link to={'/about'}>
-              Quienes Somos
-              </Link>
+              <Link to={"/about"}>Quienes Somos</Link>
             </li>
           </ul>
         </Box>

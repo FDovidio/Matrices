@@ -9,8 +9,9 @@ import {
   CardBody,
   CardFooter,
   ButtonGroup,
+  Box,
 } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import ItemCount from "./ItemCount";
 import { CartContext } from "../context/ShoppingCartContext";
@@ -79,6 +80,11 @@ const ItemDetail = ({ articulos }) => {
                   </Button>
                 </CardFooter>
               </Stack>
+              <Box display="flex" justifyContent="end">
+                <Link to={"/home"}>
+                  <Button m="10px">Volver al Inicio</Button>
+                </Link>
+              </Box>
             </Card>
           </div>
         );

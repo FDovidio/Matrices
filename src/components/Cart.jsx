@@ -102,12 +102,10 @@ const Cart = () => {
       <br />
       <p className="totalForm">Total: ${total()}</p>
       <br />
-      <Box display='flex' justifyContent='end' >
-        <Link to={'/home'}>
-      <Button m='10px'>
-        Volver al Inicio
-      </Button>
-      </Link>
+      <Box display="flex" justifyContent="end">
+        <Link to={"/home"}>
+          <Button m="10px">Volver al Inicio</Button>
+        </Link>
       </Box>
     </div>
   );

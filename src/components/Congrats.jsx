@@ -8,19 +8,27 @@ import {
   Box,
   Stack,
   StackDivider,
-  Button
+  Button,
 } from "@chakra-ui/react";
 import { CartContext } from "../context/ShoppingCartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Congrats = ({ orderId, name, tarjeta, email, total }) => {
-  const { cart } = useContext(CartContext);
+  const { cart, clear } = useContext(CartContext);
   return (
     <div className="congratsCard">
       <Card>
+        <Heading size="xl" display="flex" justifyContent="center" margin="10px">
+          ¡Felicitaciones!
+        </Heading>
+        <Text display="flex" justifyContent="center" margin="10px">
+          Tu compra se ha realizado con éxito
+        </Text>
         <CardHeader>
-          <Heading size="xl" display='flex' justifyContent='center' margin='10px'>Resumen de compra</Heading>
+          <Heading size="md" margin="10px">
+            Resumen de compra
+          </Heading>
         </CardHeader>
         <CardBody>
           <Stack divider={<StackDivider />} spacing="4">
@@ -59,17 +67,17 @@ const Congrats = ({ orderId, name, tarjeta, email, total }) => {
                 Productos
               </Heading>
               {cart.map((item) => {
-                return(
+                return (
                   <div key={item.id}>
-                <Text pt="2" fontSize="sm">
-                  {item.nombre} x {item.cant} unidades
-                </Text>
-                </div>
-                )
+                    <Text pt="2" fontSize="sm">
+                      {item.nombre} x {item.cant} unidades
+                    </Text>
+                  </div>
+                );
               })}
-              </Box>
-              <Box>
-              <Heading size="xs" textTransform="uppercase" >
+            </Box>
+            <Box>
+              <Heading size="xs" textTransform="uppercase">
                 Total
               </Heading>
               <Text pt="2" fontSize="sm">
@@ -79,12 +87,12 @@ const Congrats = ({ orderId, name, tarjeta, email, total }) => {
           </Stack>
         </CardBody>
       </Card>
-      <Box display='flex' justifyContent='end' >
-        <Link to={'/home'}>
-      <Button m='10px'>
-        Volver al Inicio
-      </Button>
-      </Link>
+      <Box display="flex" justifyContent="end">
+        <Link to={"/home"}>
+          <Button m="10px" onClick={clear}>
+            Volver al Inicio
+          </Button>
+        </Link>
       </Box>
     </div>
   );

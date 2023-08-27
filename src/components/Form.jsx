@@ -10,7 +10,7 @@ import { CartContext } from "../context/ShoppingCartContext";
 import Congrats from "./Congrats";
 
 const Form = () => {
-  const { total } = useContext(CartContext);
+  const { total, clear } = useContext(CartContext);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,6 +25,12 @@ const Form = () => {
       ({ id }) => setOrderId(id),
       setCongrats("true")
     );
+  };
+
+  const handleKeyPress = (e) => {
+    if (!/[0-9]/.test(e.key) && e.key !== "Backspace" && e.key !== "Delete") {
+      e.preventDefault();
+    }
   };
 
   const order = {
@@ -54,19 +60,18 @@ const Form = () => {
         <Input
           type="text"
           onChange={(e) => setTarjeta(e.target.value)}
-          padding="5px"
-          margin="5px"
+          onKeyDown={handleKeyPress}
           required
         />
         <FormLabel fontSize="large">Nombre</FormLabel>
         <Input type="text" onChange={(e) => setName(e.target.value)} required />
         <FormLabel fontSize="large">Fecha de expiracion</FormLabel>
-        <Input type="text" required />
+        <Input type="text" onKeyDown={handleKeyPress} required />
         <FormLabel fontSize="large">CVV</FormLabel>
-        <Input type="text" required />
+        <Input type="text" onKeyDown={handleKeyPress} required />
         <FormLabel fontSize="large">Email</FormLabel>
         <Input
-          type="text"
+          type="email"
           onChange={(e) => setEmail(e.target.value)}
           required
         />
