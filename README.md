@@ -36,9 +36,16 @@ Matrices es un pryecto realizado para el curso de REACT dictado por CODERHOUSE q
 ***
 ***
 ![Gif](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDIzZjU2dDh5YWgyemdiZzg3bGdza2d3aGRveWhhNzd2bG0yZ2o5NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lZVDANQAOJOBWdsN7h/giphy.gif)
-## Repositorio GitHub
+
+## Deploy in Vercel
+*
+* [Deploy] (https://matrices-rosy.vercel.app/)
 ***
+## Repositorio GitHub
+*
 * [Repositorio] (https://github.com/FDovidio/PreEntrega1-Dovidio.git)
+  
 ## Github Profile
+***
 ***
 * [GitHub] (https://github.com/FDovidio)
