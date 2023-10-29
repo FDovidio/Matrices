@@ -5,6 +5,7 @@ Matrices es un pryecto realizado para el curso de REACT dictado por CODERHOUSE q
 ## Tecnologias
 ***
 * [VSC](https://code.visualstudio.com/): Version 1.80.1
+* [React](https://es.react.dev/)
 * [Node.js](https://nodejs.org/es): Version 16.17.1
 * [Chakra UI](https://chakra-ui.com/): Version 2.7.1
 * [Firebase](https://firebase.google.com/?hl=es-419): Version 2.9
